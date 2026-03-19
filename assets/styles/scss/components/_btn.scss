@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+
+// -----------------PAGE ACCUEIL---------------------------
+.btn-create{
+    @include mix.button;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: var.$police-secondaire;
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+    margin-top: 7%;
+    display: block;
+    text-align: center;
+    justify-self: center;
+    background: linear-gradient(135deg, #E83E8C, #FF8C42);
+    color: #4B1C71;
+}
+
+.btn-create:hover{  
+    box-shadow: 2px 5px 20px rgba(245, 194, 107, 0.7);
+}

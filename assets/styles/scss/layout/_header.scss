@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+// Logo
+
+header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var.$couleur-secondaire;
+    
+    .menu-burger{
+        display: none;
+    }
+
+    .header-logo{
+        width: 20%;
+        justify-self: center;
+        img{
+            width: 100%;
+        }
+    }
+    .nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+         ul{
+            display: flex;
+            gap: 50px;
+            
+            li{
+                list-style: none;
+
+                a{
+                    color: bisque;
+                    font-family: var.$police-secondaire;
+                    letter-spacing: 2px;
+                    transition: all 0.3s ease;
+                    display: block;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 1.8rem;
+                }
+                a:hover{
+                    text-decoration: underline;
+                     color: red;
+                }
+            }
+        }
+    }
+}
