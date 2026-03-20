@@ -5,13 +5,39 @@
 {% block body %}
 
 <section class="container">
-<div>
-<h2>Nos Fiches</h2>
+{# MESSAGE ALERT MODIF #}
+    {% for message in app.flashes('success-modif')%}  
+        <div class="alert alert-success"> 
+            {{ message }}
+        </div>
+    {% endfor %}
+{# MESSAGE ALERT ADD #}
+    {% for message in app.flashes('success-add')%}  
+        <div class="alert alert-success"> 
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div>
+        <div class="fiche-text">
+            <h2>Découvrez nos fiches fromage</h2>
+            <p>Chaque emballage sous vide mérite une attention méticuleuse.</p>
+            <a class="btn-add" href={{ path("add_fromage")}}>Ajouter un fromage</a>
+        </div>
+    
+        <div  class="fiche-card">
+        {% for fromage in fromages %}
+           <div class="fiche-content">
+                <div class="fiche-img">
+                    {# <img src="{{ asset('/uploads/images/' ~ theme.imageName)}}" alt="Image du thème"> #}
+                </div>
+                <h3>{{fromage.nom}}</h3>
+                <p>{{fromage.verdict}}</p>
+                {# <a class="btn-plus" href={{ path("fiche", {'id' : fromage.id})}}>Voir plus</a> #}
+            </div> 
+        {% endfor %}
+        </div>
 
-<h3></h3>
-
-</div>
-
+    </div>
 </section>
 
 {% endblock %}
