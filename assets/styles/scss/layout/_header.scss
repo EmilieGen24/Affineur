@@ -32,7 +32,7 @@ header{
                 list-style: none;
 
                 a{
-                    color: bisque;
+                    color: var.$couleur-cream;
                     font-family: var.$police-secondaire;
                     letter-spacing: 2px;
                     transition: all 0.3s ease;
@@ -43,7 +43,7 @@ header{
                 }
                 a:hover{
                     text-decoration: underline;
-                     color: red;
+                     color: var.$couleur-red;
                 }
             }
         }

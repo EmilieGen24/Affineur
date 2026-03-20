@@ -12,12 +12,12 @@
     <header>
             <nav class="container navbar">
                 <div class="header-logo">
-                    <img src="" alt="Image du logo">
+                    <img src="{{ asset('../assets/img/logo.png')}}" alt="Image du logo">
                 </div>
                 <div class="nav">
                     <ul class="links">
                         <li><a href="{{ path("accueil") }}">Accueil</a></li>
-                    
+                        <li><a href="{{ path("fiche") }}">Fiches</a></li>
                     </ul>
                     
                 </div>
@@ -25,4 +25,9 @@
         </header>
         {% block body %}{% endblock %}
     </body>
+    <footer>
+     <a href="">Mentions légales</a>
+                    <a href="">Formulaire de contact</a>
+    
+    </footer>
 </html>

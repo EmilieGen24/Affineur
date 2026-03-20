@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FromageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,32 @@ class Fromage
 
     #[ORM\Column]
     private ?\DateTime $date = null;
+
+    #[ORM\ManyToOne(inversedBy: 'fromages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'fromages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Categorie $Categorie = null;
+
+    /**
+     * @var Collection<int, Enseigne>
+     */
+    #[ORM\ManyToMany(targetEntity: Enseigne::class, inversedBy: 'fromages')]
+    private Collection $enseigne;
+
+    /**
+     * @var Collection<int, Accord>
+     */
+    #[ORM\ManyToMany(targetEntity: Accord::class, inversedBy: 'fromages')]
+    private Collection $accord;
+
+    public function __construct()
+    {
+        $this->enseigne = new ArrayCollection();
+        $this->accord = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +103,78 @@ class Fromage
     public function setDate(\DateTime $date): static
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->Categorie;
+    }
+
+    public function setCategorie(?Categorie $Categorie): static
+    {
+        $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Enseigne>
+     */
+    public function getEnseigne(): Collection
+    {
+        return $this->enseigne;
+    }
+
+    public function addEnseigne(Enseigne $enseigne): static
+    {
+        if (!$this->enseigne->contains($enseigne)) {
+            $this->enseigne->add($enseigne);
+        }
+
+        return $this;
+    }
+
+    public function removeEnseigne(Enseigne $enseigne): static
+    {
+        $this->enseigne->removeElement($enseigne);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Accord>
+     */
+    public function getAccord(): Collection
+    {
+        return $this->accord;
+    }
+
+    public function addAccord(Accord $accord): static
+    {
+        if (!$this->accord->contains($accord)) {
+            $this->accord->add($accord);
+        }
+
+        return $this;
+    }
+
+    public function removeAccord(Accord $accord): static
+    {
+        $this->accord->removeElement($accord);
 
         return $this;
     }
