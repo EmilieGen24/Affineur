@@ -36,12 +36,12 @@
         {% block body %}{% endblock %}
     </body>
     <footer>
-     <a href="">Mentions légales</a>
-                    <a href="">Formulaire de contact</a>
+            <a href="{{ path("mentions_legales") }}">Mentions légales</a>
+            <a href="{{ path("contact") }}">Formulaire de contact</a>
     
-     <div class="copy">
-                    <p>Copyright 2026 Affineur. Tous droits réservés.</p>
-                </div>
+        <div class="copy">
+            <p>Copyright 2026 Affineur. Tous droits réservés.</p>
+        </div>
     </footer>
     {# Fonction JS #}
         <script>

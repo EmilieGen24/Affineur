@@ -1,7 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AddFromageController!{% endblock %}
+{% block title %}Fiche Fromage {% endblock %}
 
 {% block body %}
+<section class="container form-create">
+    <h2>Créez votre fiche fromage</h2>
+    <div class="container form-add">
+        <h3>Votre fiche</h3>
 
+        {{form_start(fromageform)}}
+            {{form_widget(fromageform)}}
+                <button class="btn-add-theme">Créer la fiche</button>
+        {{form_end(fromageform)}}
+    </div>
+</section>
 {% endblock %}
