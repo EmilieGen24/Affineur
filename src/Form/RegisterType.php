@@ -23,12 +23,12 @@ class RegisterType extends AbstractType
                     'class' => 'inscription-label'
                 ]
             ])
-            ->add('email', EmailType::class,[
-                'label' => 'Email : ',
-                'attr' => [
-                    'class' => 'inscription-label'
-                ]
-            ])
+            // ->add('email', EmailType::class,[
+            //     'label' => 'Email : ',
+            //     'attr' => [
+            //         'class' => 'inscription-label'
+            //     ]
+            // ])
              ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe : ',
                 'constraints' => [
